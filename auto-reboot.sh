@@ -1,66 +1,127 @@
-#!/bin/bash
-# GO TO ROOT
-MYIP=$(wget -qO- ipv4.icanhazip.com);
-myip=$(wget -qO- ipv4.icanhazip.com);
+if [ ! -e /usr/local/bin/Reboot-Server ]; then
+	echo '#!/bin/bash' > /usr/local/bin/Reboot-Server
+	echo '' >> /usr/local/bin/Reboot-Server
+	echo 'DATE=$(date +"%m-%d-%Y")' >> /usr/local/bin/Reboot-Server
+	echo 'TIME=$(date +"%T")' >> /usr/local/bin/Reboot-Server
+	echo 'echo "‡∏£‡∏µ‡∏ö‡∏π‡∏ó‡πÄ‡∏°‡∏∑‡πà‡∏≠‡∏ß‡∏±‡∏ô‡∏ó‡∏µ‡πà $DATE ‡πÄ‡∏ß‡∏•‡∏≤ $TIME" >> /usr/local/bin/Reboot-Log' >> /usr/local/bin/Reboot-Server
+	echo '/sbin/shutdown -r now' >> /usr/local/bin/Reboot-Server
+	chmod +x /usr/local/bin/Reboot-Server
+fi
 
 clear
-if [ ! -e /usr/local/bin/Reboot-Server ]; then
-echo '#!/bin/bash' > /usr/local/bin/Reboot-Server 
-echo 'tanggal=$(date +"%m-%d-%Y")' >> /usr/local/bin/Reboot-Server 
-echo 'waktu=$(date +"%T")' >> /usr/local/bin/Reboot-Server 
-echo 'echo "‡´‘√Ïø‡«Õ√Ï‰¥È√—∫°“√∫Ÿµ„À¡Ë‡√’¬∫√ÈÕ¬·≈È«„π«—π∑’Ë $tanggal pukul $waktu." >> /root/log-reboot.txt' >> /usr/local/bin/Reboot-Server 
-echo '/sbin/shutdown -r now' >> /usr/local/bin/Reboot-Server 
-chmod +x /usr/local/bin/Reboot-Server
+echo ""
+echo -e "${GRAY}‡∏ï‡∏±‡πâ‡∏á‡∏Ñ‡πà‡∏≤‡πÄ‡∏ß‡∏•‡∏≤‡∏£‡∏µ‡∏ö‡∏π‡∏ó‡πÄ‡∏ã‡∏¥‡∏ü‡πÄ‡∏ß‡∏≠‡∏£‡πå‡∏≠‡∏±‡∏ï‡πÇ‡∏ô‡∏°‡∏±‡∏ï‡∏¥ ${NC} "
+echo ""
+echo -e "|${GRAY}1${NC}| ‡∏£‡∏µ‡∏ö‡∏π‡∏ó‡∏ó‡∏∏‡∏Å‡πÜ  1 ‡∏ä‡∏±‡πà‡∏ß‡πÇ‡∏°‡∏á"
+echo -e "|${GRAY}2${NC}| ‡∏£‡∏µ‡∏ö‡∏π‡∏ó‡∏ó‡∏∏‡∏Å‡πÜ  6 ‡∏ä‡∏±‡πà‡∏ß‡πÇ‡∏°‡∏á"
+echo -e "|${GRAY}3${NC}| ‡∏£‡∏µ‡∏ö‡∏π‡∏ó‡∏ó‡∏∏‡∏Å‡πÜ 12 ‡∏ä‡∏±‡πà‡∏ß‡πÇ‡∏°‡∏á"
+echo -e "|${GRAY}4${NC}| ‡∏£‡∏µ‡∏ö‡∏π‡∏ó‡∏ó‡∏∏‡∏Å‡πÜ  1 ‡∏ß‡∏±‡∏ô"
+echo -e "|${GRAY}5${NC}| ‡∏£‡∏µ‡∏ö‡∏π‡∏ó‡∏ó‡∏∏‡∏Å‡πÜ  7 ‡∏ß‡∏±‡∏ô"
+echo -e "|${GRAY}6${NC}| ‡∏£‡∏µ‡∏ö‡∏π‡∏ó‡∏ó‡∏∏‡∏Å‡πÜ 30 ‡∏ß‡∏±‡∏ô"
+echo -e "|${GRAY}7${NC}| ‡∏´‡∏¢‡∏∏‡∏î‡∏Å‡∏≤‡∏£‡∏£‡∏µ‡∏ö‡∏π‡∏ó‡πÄ‡∏ã‡∏¥‡∏ü‡πÄ‡∏ß‡∏≠‡∏£‡πå"
+echo -e "|${GRAY}8${NC}| ‡∏ï‡∏£‡∏ß‡∏à‡∏™‡∏≠‡∏ö‡∏î‡∏π‡∏ö‡∏±‡∏ô‡∏ó‡∏∂‡∏Å‡∏Å‡∏≤‡∏£‡∏£‡∏µ‡∏ö‡∏π‡∏ó‡πÄ‡∏ã‡∏¥‡∏ü‡πÄ‡∏ß‡∏≠‡∏£‡πå"
+echo -e "|${GRAY}9${NC}| ‡∏•‡∏ö‡∏ö‡∏±‡∏ô‡∏ó‡∏∂‡∏Å‡∏Å‡∏≤‡∏£‡∏£‡∏µ‡∏ö‡∏π‡∏ó‡πÄ‡∏ã‡∏¥‡∏ü‡πÄ‡∏ß‡∏≠‡∏£‡πå"
+echo ""
+read -p "‡πÄ‡∏•‡∏∑‡∏≠‡∏Å‡∏´‡∏±‡∏ß‡∏Ç‡πâ‡∏≠‡∏ó‡∏µ‡πà‡∏ï‡πâ‡∏≠‡∏á‡∏Å‡∏≤‡∏£‡πÉ‡∏ä‡πâ‡∏á‡∏≤‡∏ô : " REBOOT
 
+case $REBOOT in
 
-echo "-------------------------------------------"
-echo " ‡¡πŸ√–∫∫√’∫ŸµÕ—µ‚π¡—µ‘ "
-echo "-------------------------------------------"
-echo "1.  µ—Èß§Ë“°“√√’∫ŸµÕ—µ‚π¡—µ‘ 1 ™—Ë«‚¡ß"
-echo "2.  µ—Èß§Ë“°“√√’∫ŸµÕ—µ‚π¡—µ‘ 6 ™—Ë«‚¡ß"
-echo "3.  µ—Èß§Ë“°“√√’∫ŸµÕ—µ‚π¡—µ‘ 12 ™—Ë«‚¡ß"
-echo "4.  µ—Èß§Ë“°“√√’∫ŸµÕ—µ‚π¡—µ‘ 1 «—π"
-echo "5.  µ—Èß§Ë“°“√√’∫ŸµÕ—µ‚π¡—µ‘ 1  —ª¥“ÀÏ"
-echo "6.  µ—Èß§Ë“°“√√’∫ŸµÕ—µ‚π¡—µ‘ 1 ‡¥◊Õπ"
-echo "7.  ª‘¥°“√√’∫ŸµÕ—µ‚π¡—µ‘"
-echo "8.  ¥Ÿª√–«—µ‘°“√√’∫Ÿµ"
-echo "9.  ≈È“ßª√–«—µ‘°“√√’∫Ÿµ"
-echo "-------------------------------------------"
-read -p "‡≈◊Õ°§” —Ëß (æ‘¡æÏ‡≈¢): " x
+	1)
 
-if test $x -eq 1; then
-echo "10 * * * * root /usr/local/bin/Reboot-Server" > /etc/cron.d/Reboot-Server
-echo "°“√√’∫ŸµÕ—µ‚π¡—µ‘‰¥È√—∫°“√µ—Èß§Ë“Àπ÷Ëß§√—Èß„πÀπ÷Ëß™—Ë«‚¡ß."
-elif test $x -eq 2; then
-echo "10 */6 * * * root /usr/local/bin/Reboot-Server" > /etc/cron.d/Reboot-Server
-echo "°“√√’∫ŸµÕ—µ‚π¡—µ‘‰¥È√—∫°“√µ—Èß§Ë“‡√’¬∫√ÈÕ¬·≈È« 6 ™—Ë«‚¡ß."
-elif test $x -eq 3; then
-echo "10 */12 * * * root /usr/local/bin/Reboot-Server" > /etc/cron.d/Reboot-Server
-echo "°“√√’∫ŸµÕ—µ‚π¡—µ‘‰¥È√—∫°“√µ—Èß§Ë“‡√’¬∫√ÈÕ¬·≈È« 12 ™—Ë«‚¡ß."
-elif test $x -eq 4; then
-echo "10 0 * * * root /usr/local/bin/Reboot-Server" > /etc/cron.d/Reboot-Server
-echo "°“√√’∫ŸµÕ—µ‚π¡—µ‘‰¥È√—∫°“√µ—Èß§Ë“«—π≈–§√—Èß."
-elif test $x -eq 5; then
-echo "10 0 */7 * * root /usr/local/bin/Reboot-Server" > /etc/cron.d/Reboot-Server
-echo "√–∫∫√’∫ŸµÕ—µ‚π¡—µ‘‰¥È√—∫°“√µ—Èß§Ë“ —ª¥“ÀÏ≈–§√—Èß."
-elif test $x -eq 6; then
-echo "10 0 1 * * root /usr/local/bin/Reboot-Server" > /etc/cron.d/Reboot-Server
-echo "√–∫∫√’∫ŸµÕ—µ‚π¡—µ‘‰¥È√—∫°“√µ—Èß§Ë“‡¥◊Õπ≈–§√—Èß."
-elif test $x -eq 7; then
-rm -f /etc/cron.d/Reboot-Server
-echo "ª‘¥„™Èß“π°“√√’∫ŸµÕ—µ‚π¡—µ‘‡√’¬∫√ÈÕ¬·≈È«."
-elif test $x -eq 8; then
-if [ ! -e /root/log-reboot.txt ]; then
-	echo "‰¡Ë¡’ª√–«—µ‘√’∫Ÿµ"
-	else 
-	echo 'LOG REBOOT'
-	echo "-------"
-	cat /root/log-reboot.txt
-
-elif test $x -eq 9; then
-echo "" > /root/log-reboot.txt
-echo "∫—π∑÷°°“√√’∫ŸµÕ—µ‚π¡—µ‘ ”‡√Á®·≈È«!"
-else
-echo "‰¡Ëæ∫µ—«‡≈◊Õ°„π‡¡πŸ."
+echo "0 * * * * root /usr/local/bin/Reboot-Server" > /etc/cron.d/Reboot-Server
+echo ""
+echo "‡∏ï‡∏±‡πâ‡∏á‡∏Ñ‡πà‡∏≤‡∏£‡∏µ‡∏ö‡∏π‡∏ó‡πÄ‡∏ã‡∏¥‡∏ü‡πÄ‡∏ß‡∏≠‡∏£‡πå‡∏ó‡∏∏‡∏Å‡πÜ 1 ‡∏ä‡∏±‡πà‡∏ß‡πÇ‡∏°‡∏á‡πÄ‡∏£‡∏µ‡∏¢‡∏ö‡∏£‡πâ‡∏≠‡∏¢‡πÅ‡∏•‡πâ‡∏ß"
+echo ""
 exit
 
+	;;
+
+	2)
+
+echo "0 */6 * * * root /usr/local/bin/Reboot-Server" > /etc/cron.d/Reboot-Server
+echo ""
+echo "‡∏ï‡∏±‡πâ‡∏á‡∏Ñ‡πà‡∏≤‡∏£‡∏µ‡∏ö‡∏π‡∏ó‡πÄ‡∏ã‡∏¥‡∏ü‡πÄ‡∏ß‡∏≠‡∏£‡πå‡∏ó‡∏∏‡∏Å‡πÜ 6 ‡∏ä‡∏±‡πà‡∏ß‡πÇ‡∏°‡∏á‡πÄ‡∏£‡∏µ‡∏¢‡∏ö‡∏£‡πâ‡∏≠‡∏¢‡πÅ‡∏•‡πâ‡∏ß"
+echo ""
+exit
+
+	;;
+
+	3)
+
+echo "0 */12 * * * root /usr/local/bin/Reboot-Server" > /etc/cron.d/Reboot-Server
+echo ""
+echo "‡∏ï‡∏±‡πâ‡∏á‡∏Ñ‡πà‡∏≤‡∏£‡∏µ‡∏ö‡∏π‡∏ó‡πÄ‡∏ã‡∏¥‡∏ü‡πÄ‡∏ß‡∏≠‡∏£‡πå‡∏ó‡∏∏‡∏Å‡πÜ 12 ‡∏ä‡∏±‡πà‡∏ß‡πÇ‡∏°‡∏á‡πÄ‡∏£‡∏µ‡∏¢‡∏ö‡∏£‡πâ‡∏≠‡∏¢‡πÅ‡∏•‡πâ‡∏ß"
+echo ""
+exit
+
+	;;
+
+	4)
+
+echo "0 0 * * * root /usr/local/bin/Reboot-Server" > /etc/cron.d/Reboot-Server
+echo ""
+echo "‡∏ï‡∏±‡πâ‡∏á‡∏Ñ‡πà‡∏≤‡∏£‡∏µ‡∏ö‡∏π‡∏ó‡πÄ‡∏ã‡∏¥‡∏ü‡πÄ‡∏ß‡∏≠‡∏£‡πå‡∏ó‡∏∏‡∏Å‡πÜ 1 ‡∏ß‡∏±‡∏ô‡πÄ‡∏£‡∏µ‡∏¢‡∏ö‡∏£‡πâ‡∏≠‡∏¢‡πÅ‡∏•‡πâ‡∏ß"
+echo ""
+exit
+
+	;;
+
+	5)
+
+echo "0 0 * * MON root /usr/local/bin/Reboot-Server" > /etc/cron.d/Reboot-Server
+echo ""
+echo "‡∏ï‡∏±‡πâ‡∏á‡∏Ñ‡πà‡∏≤‡∏£‡∏µ‡∏ö‡∏π‡∏ó‡πÄ‡∏ã‡∏¥‡∏ü‡πÄ‡∏ß‡∏≠‡∏£‡πå‡∏ó‡∏∏‡∏Å‡πÜ 7 ‡∏ß‡∏±‡∏ô‡πÄ‡∏£‡∏µ‡∏¢‡∏ö‡∏£‡πâ‡∏≠‡∏¢‡πÅ‡∏•‡πâ‡∏ß"
+echo ""
+exit
+
+	;;
+
+	6)
+
+echo "0 0 1 * * root /usr/local/bin/Reboot-Server" > /etc/cron.d/Reboot-Server
+echo ""
+echo "‡∏ï‡∏±‡πâ‡∏á‡∏Ñ‡πà‡∏≤‡∏£‡∏µ‡∏ö‡∏π‡∏ó‡πÄ‡∏ã‡∏¥‡∏ü‡πÄ‡∏ß‡∏≠‡∏£‡πå‡∏ó‡∏∏‡∏Å‡πÜ 30 ‡∏ß‡∏±‡∏ô‡πÄ‡∏£‡∏µ‡∏¢‡∏ö‡∏£‡πâ‡∏≠‡∏¢‡πÅ‡∏•‡πâ‡∏ß"
+echo ""
+exit
+
+	;;
+
+	7)
+
+rm -rf /usr/local/bin/Reboot-Server
+echo ""
+echo "‡∏´‡∏¢‡∏∏‡∏î‡∏Å‡∏≤‡∏£‡∏£‡∏µ‡∏ö‡∏π‡∏ó‡πÄ‡∏ã‡∏¥‡∏ü‡πÄ‡∏ß‡∏≠‡∏£‡πå‡πÄ‡∏£‡∏µ‡∏¢‡∏ö‡∏£‡πâ‡∏≠‡∏¢‡πÅ‡∏•‡πâ‡∏ß"
+echo ""
+exit
+
+	;;
+
+	8)
+
+if [[ ! -e /usr/local/bin/Reboot-Log ]]; then
+	echo ""
+	echo "‡πÑ‡∏°‡πà‡∏°‡∏µ‡∏ö‡∏±‡∏ô‡∏ó‡∏∂‡∏Å‡∏Å‡∏≤‡∏£‡∏£‡∏µ‡∏ö‡∏π‡∏ó‡πÄ‡∏ã‡∏¥‡∏ü‡πÄ‡∏ß‡∏≠‡∏£‡πå"
+	echo ""
+	exit
+else
+	echo ""
+	cat /usr/local/bin/Reboot-Log
+	echo ""
+	exit
+fi
+
+	;;
+
+	9)
+
+rm -rf /usr/local/bin/Reboot-Log
+echo ""
+echo "‡∏•‡∏ö‡∏ö‡∏±‡∏ô‡∏ó‡∏∂‡∏Å‡∏Å‡∏≤‡∏£‡∏£‡∏µ‡∏ö‡∏π‡∏ó‡πÄ‡∏ã‡∏¥‡∏ü‡πÄ‡∏ß‡∏≠‡∏£‡πå‡πÄ‡∏£‡∏µ‡∏¢‡∏ö‡∏£‡πâ‡∏≠‡∏¢‡πÅ‡∏•‡πâ‡∏ß"
+echo ""
+exit
+
+	;;
+
+esac
+
+	;;
