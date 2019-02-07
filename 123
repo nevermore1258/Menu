@@ -4,7 +4,7 @@ echo 'tanggal=$(date +"%m-%d-%Y")' >> /usr/local/bin/reboot_sv
 echo 'waktu=$(date +"%T")' >> /usr/local/bin/reboot_sv
 echo 'echo "เซิร์ฟเวอร์ได้รับการบูตใหม่เรียบร้อยแล้วในวันที่ $tanggal pukul $waktu." >> /root/log-reboot.txt' >> /usr/local/bin/reboot_sv
 echo '/sbin/shutdown -r now' >> /usr/local/bin/reboot_sv
-chmod +x /usr/local/bin/reboot_dinfucker
+chmod +x /usr/local/bin/reboot_sv
 fi
 
 echo "-------------------------------------------"
@@ -23,22 +23,22 @@ echo "-------------------------------------------"
 read -p "เลือกคำสั่ง (พิมพ์เลข): " x
 
 if test $x -eq 1; then
-echo "10 * * * * root /usr/local/bin/reboot_dinfucker" > /etc/cron.d/reboot_sv
+echo "10 * * * * root /usr/local/bin/reboot_sv" > /etc/cron.d/reboot_sv
 echo "การรีบูตอัตโนมัติได้รับการตั้งค่าหนึ่งครั้งในหนึ่งชั่วโมง."
 elif test $x -eq 2; then
-echo "10 */6 * * * root /usr/local/bin/reboot_dinfucker" > /etc/cron.d/reboot_sv
+echo "10 */6 * * * root /usr/local/bin/reboot_sv" > /etc/cron.d/reboot_sv
 echo "การรีบูตอัตโนมัติได้รับการตั้งค่าเรียบร้อยแล้ว 6 ชั่วโมง."
 elif test $x -eq 3; then
-echo "10 */12 * * * root /usr/local/bin/reboot_dinfucker" > /etc/cron.d/reboot_sv
+echo "10 */12 * * * root /usr/local/bin/reboot_sv" > /etc/cron.d/reboot_sv
 echo "การรีบูตอัตโนมัติได้รับการตั้งค่าเรียบร้อยแล้ว 12 ชั่วโมง."
 elif test $x -eq 4; then
-echo "10 0 * * * root /usr/local/bin/reboot_dinfucker" > /etc/cron.d/reboot_sv
+echo "10 0 * * * root /usr/local/bin/reboot_sv" > /etc/cron.d/reboot_sv
 echo "การรีบูตอัตโนมัติได้รับการตั้งค่าวันละครั้ง."
 elif test $x -eq 5; then
-echo "10 0 */7 * * root /usr/local/bin/reboot_dinfucker" > /etc/cron.d/reboot_sv
+echo "10 0 */7 * * root /usr/local/bin/reboot_sv" > /etc/cron.d/reboot_sv
 echo "ระบบรีบูตอัตโนมัติได้รับการตั้งค่าสัปดาห์ละครั้ง."
 elif test $x -eq 6; then
-echo "10 0 1 * * root /usr/local/bin/reboot_dinfucker" > /etc/cron.d/reboot_sv
+echo "10 0 1 * * root /usr/local/bin/reboot_sv" > /etc/cron.d/reboot_sv
 echo "ระบบรีบูตอัตโนมัติได้รับการตั้งค่าเดือนละครั้ง."
 elif test $x -eq 7; then
 rm -f /etc/cron.d/reboot_sv
