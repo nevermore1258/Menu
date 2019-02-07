@@ -4,7 +4,6 @@ MYIP=$(wget -qO- ipv4.icanhazip.com);
 myip=$(wget -qO- ipv4.icanhazip.com);
 
 clear
-fi
 if [ ! -e /usr/local/bin/Reboot-Server ]; then
 echo '#!/bin/bash' > /usr/local/bin/Reboot-Server 
 echo 'tanggal=$(date +"%m-%d-%Y")' >> /usr/local/bin/Reboot-Server 
@@ -12,7 +11,7 @@ echo 'waktu=$(date +"%T")' >> /usr/local/bin/Reboot-Server
 echo 'echo "เซิร์ฟเวอร์ได้รับการบูตใหม่เรียบร้อยแล้วในวันที่ $tanggal pukul $waktu." >> /root/log-reboot.txt' >> /usr/local/bin/Reboot-Server 
 echo '/sbin/shutdown -r now' >> /usr/local/bin/Reboot-Server 
 chmod +x /usr/local/bin/Reboot-Server
-fi
+
 
 echo "-------------------------------------------"
 echo " เมนูระบบรีบูตอัตโนมัติ "
@@ -57,11 +56,11 @@ if [ ! -e /root/log-reboot.txt ]; then
 	echo 'LOG REBOOT'
 	echo "-------"
 	cat /root/log-reboot.txt
-fi
+
 elif test $x -eq 9; then
 echo "" > /root/log-reboot.txt
 echo "บันทึกการรีบูตอัตโนมัติสำเร็จแล้ว!"
 else
 echo "ไม่พบตัวเลือกในเมนู."
 exit
-fi
+
