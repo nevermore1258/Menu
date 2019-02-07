@@ -1,0 +1,20 @@
+#!/bin/bash
+#Menu
+
+echo -e "* menu      : List of menu"
+echo -e "* add   : Create SSH & OpenVPN 1 Session"
+echo -e "* addmulti   : Create SSH & OpenVPN 20 Session"
+echo -e "* trial     : new trial user"
+echo -e "* del       : delete user SSH & OpenVPN"
+echo -e "* view       : view user login"
+echo -e "* acc    : view all member SSH & OpenVPN"
+echo -e "* online    : view all member online SSH & OpenVPN"
+echo -e "* restart service    : restart service dropbear, webmin"
+echo -e "              squid3, OpenVPN dan SSH"
+echo -e "* auto-reboot    : Set reboot VPS"
+echo -e "* speedtest : speedtest VPS"
+echo -e "* info      : info this system"
+echo -e "* about     : info this script auto install"
+echo -e "* exit      : close Putty/Connecbot/"
+echo -e "              JuiceSSH"
+echo -e ""
