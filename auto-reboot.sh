@@ -1,127 +1,60 @@
-if [ ! -e /usr/local/bin/Reboot-Server ]; then
-	echo '#!/bin/bash' > /usr/local/bin/Reboot-Server
-	echo '' >> /usr/local/bin/Reboot-Server
-	echo 'DATE=$(date +"%m-%d-%Y")' >> /usr/local/bin/Reboot-Server
-	echo 'TIME=$(date +"%T")' >> /usr/local/bin/Reboot-Server
-	echo 'echo "รีบูทเมื่อวันที่ $DATE เวลา $TIME" >> /usr/local/bin/Reboot-Log' >> /usr/local/bin/Reboot-Server
-	echo '/sbin/shutdown -r now' >> /usr/local/bin/Reboot-Server
-	chmod +x /usr/local/bin/Reboot-Server
+if [ ! -e /usr/local/bin/reboot_sv ]; then
+echo '#!/bin/bash' > /usr/local/bin/reboot_sv
+echo 'tanggal=$(date +"%m-%d-%Y")' >> /usr/local/bin/reboot_sv
+echo 'waktu=$(date +"%T")' >> /usr/local/bin/reboot_sv
+echo 'echo "เซิร์ฟเวอร์ได้รับการบูตใหม่เรียบร้อยแล้วในวันที่ $tanggal pukul $waktu." >> /root/log-reboot.txt' >> /usr/local/bin/reboot_sv
+echo '/sbin/shutdown -r now' >> /usr/local/bin/reboot_sv
+chmod +x /usr/local/bin/reboot_sv
 fi
 
-clear
-echo ""
-echo -e "${GRAY}ตั้งค่าเวลารีบูทเซิฟเวอร์อัตโนมัติ ${NC} "
-echo ""
-echo -e "|${GRAY}1${NC}| รีบูททุกๆ  1 ชั่วโมง"
-echo -e "|${GRAY}2${NC}| รีบูททุกๆ  6 ชั่วโมง"
-echo -e "|${GRAY}3${NC}| รีบูททุกๆ 12 ชั่วโมง"
-echo -e "|${GRAY}4${NC}| รีบูททุกๆ  1 วัน"
-echo -e "|${GRAY}5${NC}| รีบูททุกๆ  7 วัน"
-echo -e "|${GRAY}6${NC}| รีบูททุกๆ 30 วัน"
-echo -e "|${GRAY}7${NC}| หยุดการรีบูทเซิฟเวอร์"
-echo -e "|${GRAY}8${NC}| ตรวจสอบดูบันทึกการรีบูทเซิฟเวอร์"
-echo -e "|${GRAY}9${NC}| ลบบันทึกการรีบูทเซิฟเวอร์"
-echo ""
-read -p "เลือกหัวข้อที่ต้องการใช้งาน : " REBOOT
+echo "-------------------------------------------"
+echo " เมนูระบบรีบูตอัตโนมัติ "
+echo "-------------------------------------------"
+echo "1.  ตั้งค่าการรีบูตอัตโนมัติ 1 ชั่วโมง"
+echo "2.  ตั้งค่าการรีบูตอัตโนมัติ 6 ชั่วโมง"
+echo "3.  ตั้งค่าการรีบูตอัตโนมัติ 12 ชั่วโมง"
+echo "4.  ตั้งค่าการรีบูตอัตโนมัติ 1 วัน"
+echo "5.  ตั้งค่าการรีบูตอัตโนมัติ 1 สัปดาห์"
+echo "6.  ตั้งค่าการรีบูตอัตโนมัติ 1 เดือน"
+echo "7.  ปิดการรีบูตอัตโนมัติ"
+echo "8.  ดูประวัติการรีบูต"
+echo "9.  ล้างประวัติการรีบูต"
+echo "-------------------------------------------"
+read -p "เลือกคำสั่ง (พิมพ์เลข): " x
 
-case $REBOOT in
-
-	1)
-
-echo "0 * * * * root /usr/local/bin/Reboot-Server" > /etc/cron.d/Reboot-Server
-echo ""
-echo "ตั้งค่ารีบูทเซิฟเวอร์ทุกๆ 1 ชั่วโมงเรียบร้อยแล้ว"
-echo ""
-exit
-
-	;;
-
-	2)
-
-echo "0 */6 * * * root /usr/local/bin/Reboot-Server" > /etc/cron.d/Reboot-Server
-echo ""
-echo "ตั้งค่ารีบูทเซิฟเวอร์ทุกๆ 6 ชั่วโมงเรียบร้อยแล้ว"
-echo ""
-exit
-
-	;;
-
-	3)
-
-echo "0 */12 * * * root /usr/local/bin/Reboot-Server" > /etc/cron.d/Reboot-Server
-echo ""
-echo "ตั้งค่ารีบูทเซิฟเวอร์ทุกๆ 12 ชั่วโมงเรียบร้อยแล้ว"
-echo ""
-exit
-
-	;;
-
-	4)
-
-echo "0 0 * * * root /usr/local/bin/Reboot-Server" > /etc/cron.d/Reboot-Server
-echo ""
-echo "ตั้งค่ารีบูทเซิฟเวอร์ทุกๆ 1 วันเรียบร้อยแล้ว"
-echo ""
-exit
-
-	;;
-
-	5)
-
-echo "0 0 * * MON root /usr/local/bin/Reboot-Server" > /etc/cron.d/Reboot-Server
-echo ""
-echo "ตั้งค่ารีบูทเซิฟเวอร์ทุกๆ 7 วันเรียบร้อยแล้ว"
-echo ""
-exit
-
-	;;
-
-	6)
-
-echo "0 0 1 * * root /usr/local/bin/Reboot-Server" > /etc/cron.d/Reboot-Server
-echo ""
-echo "ตั้งค่ารีบูทเซิฟเวอร์ทุกๆ 30 วันเรียบร้อยแล้ว"
-echo ""
-exit
-
-	;;
-
-	7)
-
-rm -rf /usr/local/bin/Reboot-Server
-echo ""
-echo "หยุดการรีบูทเซิฟเวอร์เรียบร้อยแล้ว"
-echo ""
-exit
-
-	;;
-
-	8)
-
-if [[ ! -e /usr/local/bin/Reboot-Log ]]; then
-	echo ""
-	echo "ไม่มีบันทึกการรีบูทเซิฟเวอร์"
-	echo ""
-	exit
+if test $x -eq 1; then
+echo "10 * * * * root /usr/local/bin/reboot_sv" > /etc/cron.d/reboot_sv
+echo "การรีบูตอัตโนมัติได้รับการตั้งค่าหนึ่งครั้งในหนึ่งชั่วโมง."
+elif test $x -eq 2; then
+echo "10 */6 * * * root /usr/local/bin/reboot_sv" > /etc/cron.d/reboot_sv
+echo "การรีบูตอัตโนมัติได้รับการตั้งค่าเรียบร้อยแล้ว 6 ชั่วโมง."
+elif test $x -eq 3; then
+echo "10 */12 * * * root /usr/local/bin/reboot_sv" > /etc/cron.d/reboot_sv
+echo "การรีบูตอัตโนมัติได้รับการตั้งค่าเรียบร้อยแล้ว 12 ชั่วโมง."
+elif test $x -eq 4; then
+echo "10 0 * * * root /usr/local/bin/reboot_sv" > /etc/cron.d/reboot_sv
+echo "การรีบูตอัตโนมัติได้รับการตั้งค่าวันละครั้ง."
+elif test $x -eq 5; then
+echo "10 0 */7 * * root /usr/local/bin/reboot_sv" > /etc/cron.d/reboot_sv
+echo "ระบบรีบูตอัตโนมัติได้รับการตั้งค่าสัปดาห์ละครั้ง."
+elif test $x -eq 6; then
+echo "10 0 1 * * root /usr/local/bin/reboot_sv" > /etc/cron.d/reboot_sv
+echo "ระบบรีบูตอัตโนมัติได้รับการตั้งค่าเดือนละครั้ง."
+elif test $x -eq 7; then
+rm -f /etc/cron.d/reboot_sv
+echo "ปิดใช้งานการรีบูตอัตโนมัติเรียบร้อยแล้ว."
+elif test $x -eq 8; then
+if [ ! -e /root/log-reboot.txt ]; then
+	echo "ไม่มีประวัติรีบูต"
+	else 
+	echo 'LOG REBOOT'
+	echo "-------"
+	cat /root/log-reboot.txt
+fi
+elif test $x -eq 9; then
+echo "" > /root/log-reboot.txt
+echo "บันทึกการรีบูตอัตโนมัติสำเร็จแล้ว!"
 else
-	echo ""
-	cat /usr/local/bin/Reboot-Log
-	echo ""
-	exit
-fi
-
-	;;
-
-	9)
-
-rm -rf /usr/local/bin/Reboot-Log
-echo ""
-echo "ลบบันทึกการรีบูทเซิฟเวอร์เรียบร้อยแล้ว"
-echo ""
+echo "ไม่พบตัวเลือกในเมนู."
 exit
-
-	;;
-
-esac
-
-	;;
+fi
