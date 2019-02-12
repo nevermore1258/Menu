@@ -2,7 +2,7 @@ if [ ! -e /usr/local/bin/reboot_sv ]; then
 echo '#!/bin/bash' > /usr/local/bin/reboot_sv
 echo 'tanggal=$(date +"%m-%d-%Y")' >> /usr/local/bin/reboot_sv
 echo 'waktu=$(date +"%T")' >> /usr/local/bin/reboot_sv
-echo 'echo "เซิร์ฟเวอร์ได้รับการบูตใหม่เรียบร้อยแล้วในวันที่ $tanggal pukul $waktu." >> /root/log-reboot.txt' >> /usr/local/bin/reboot_sv
+echo 'echo "เซิร์ฟเวอร์ได้รับการบูตใหม่เรียบร้อยแล้วในวันที่ $tanggal เวลา $waktu." >> /root/log-reboot.txt' >> /usr/local/bin/reboot_sv
 echo '/sbin/shutdown -r now' >> /usr/local/bin/reboot_sv
 chmod +x /usr/local/bin/reboot_sv
 fi
